@@ -10,7 +10,6 @@
                     @forelse ($instrucoes_impressao as $instrucao_impressao)
                         <li>{{ $instrucao_impressao }}</li>
                     @empty
-
                         <li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (Não use
                             modo econômico).
                         </li>
@@ -114,7 +113,7 @@
                 </td>
                 <td>
                     <div class="titulo">(=) Valor Documento</div>
-                    <div class="conteudo rtl">{{ $valor }}</div>
+                    <div class="conteudo rtl">{{ number_format(floatval(str_replace(",", ".", $valor)) - (floatval(str_replace(",", ".", $juros)) + floatval(str_replace(",", ".", $multa))) , 2, ",", ".")}}</div>
                 </td>
             </tr>
             <tr>
@@ -128,11 +127,11 @@
                 </td>
                 <td>
                     <div class="titulo">(+) Outros acréscimos</div>
-                    <div class="conteudo rtl"></div>
+                    <div class="conteudo rtl">{{ number_format(floatval(str_replace(",", ".", $juros)) + floatval(str_replace(",", ".", $multa)) , 2, ",", ".")}}</div>
                 </td>
                 <td>
                     <div class="titulo">(=) Valor cobrado</div>
-                    <div class="conteudo rtl"></div>
+                    <div class="conteudo rtl">{{ $valor}}</div>
                 </td>
             </tr>
             <tr>

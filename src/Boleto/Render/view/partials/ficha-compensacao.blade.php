@@ -91,7 +91,7 @@
         </td>
         <td>
             <div class="titulo">(=) Valor do Documento</div>
-            <div class="conteudo rtl">{{ $valor }}</div>
+            <div class="conteudo rtl">{{ number_format(floatval(str_replace(",", ".", $valor)) - (floatval(str_replace(",", ".", $juros)) + floatval(str_replace(",", ".", $multa))) , 2, ",", ".")}}</div>
         </td>
     </tr>
     <tr>
@@ -120,7 +120,7 @@
         </td>
         <td>
             <div class="titulo">(+) Mora / Multa {{ $codigo_banco == '104' ? '/ Juros' : '' }}</div>
-            <div class="conteudo rtl"></div>
+            <div class="conteudo rtl">{{ number_format(floatval(str_replace(",", ".", $juros)) + floatval(str_replace(",", ".", $multa)) , 2, ",", ".")}}</div>
         </td>
     </tr>
     <tr>
@@ -140,7 +140,7 @@
         </td>
         <td>
             <div class="titulo">(=) Valor cobrado</div>
-            <div class="conteudo rtl"></div>
+            <div class="conteudo rtl">{{ $valor}}</div>
         </td>
     </tr>
     <tr>
