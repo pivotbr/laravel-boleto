@@ -5,6 +5,7 @@
         "eduardokum",
         "laravel-boleto"
     ],
+    "type": "library",
     "homepage": "https://github.com/eduardokum/laravel-boleto",
     "license": "MIT",
     "authors": [
